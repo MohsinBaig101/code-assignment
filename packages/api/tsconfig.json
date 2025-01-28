@@ -1,7 +1,10 @@
 {
   "extends": "@inf/tsconfig/internal-package.json",
   "compilerOptions": {
-    "types": ["node", "vitest/globals"]
+    "types": ["node", "vitest/globals"],
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
   },
   "include": ["src", "../db/src/kysely.ts"],
   "exclude": ["node_modules"]

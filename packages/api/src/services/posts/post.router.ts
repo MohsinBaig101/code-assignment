@@ -3,8 +3,9 @@
 import { publicProcedure, protectedProcedure } from "../../trpc";
 import { z } from "zod";
 import { PostService } from "./post.service";
+import { Container } from '../../lib/dContainer';  // Import the DI container
 
-const postService = new PostService();
+const postService = Container.get(PostService);
 
 export const postRouter = {
     all: publicProcedure.query(async () => {
