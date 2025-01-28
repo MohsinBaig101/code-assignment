@@ -2,7 +2,9 @@
 
 import { prisma } from "@inf/db";
 import type { Post } from "@prisma/client";
+import { Service } from "typedi";
 
+@Service()
 export class PostRepository {
     // Fetch all posts
     async getAll(): Promise<Post[]> {
