@@ -6,7 +6,7 @@ declare global {
   var prisma: PrismaClient | undefined;
 }
 
-class PrismaClientManager {
+export class PrismaClientManager {
   private static instance: PrismaClient;
 
   // Use the static instance property to ensure a singleton pattern
