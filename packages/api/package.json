@@ -17,14 +17,15 @@
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false",
-    "test": "NODE_ENV=test TEST_ENV=test pnpm with-env vitest",
-    "test:bail": "NODE_ENV=test pnpm with-env vitest run --run --bail 1",
+    "test": "cross-env NODE_ENV=test TEST_ENV=test pnpm with-env vitest",
+    "test:bail": "cross-env =test pnpm with-env vitest run --run --bail 1",
     "with-env": "dotenv -e ../../.env --"
   },
   "dependencies": {
     "@inf/db": "workspace:*",
     "@inf/validators": "workspace:*",
     "@trpc/server": "catalog:",
+    "cross-env": "^7.0.3",
     "kysely": "0.27.4",
     "superjson": "2.2.1",
     "zod": "catalog:"
