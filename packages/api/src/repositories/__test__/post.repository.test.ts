@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { describe, it, expect, vi } from 'vitest';
-import { PostRepository } from '../../posts/post.repository';
+import { PostRepository } from '../../repositories/post.repository';
 import { prisma } from '@inf/db'; // Assuming prisma is imported from here
 
 describe('PostRepository', () => {

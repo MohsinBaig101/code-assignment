@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
-import { PostService } from '../../posts/post.service';
-import { PostRepository } from '../../posts/post.repository';
-import { Container } from '../../../lib/dContainer';
+import { PostService } from '../post.service';
+import { PostRepository } from '../../repositories/post.repository';
+import { Container } from '../../lib/dContainer';
 
 describe('PostService', () => {
     let postService: PostService;
