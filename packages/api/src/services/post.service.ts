@@ -1,5 +1,5 @@
-import { PostRepository } from "./post.repository";
-import { Container } from '../../lib/dContainer';  // Import the DI container
+import { PostRepository } from "../repositories/post.repository";
+import { Container } from '../lib/dContainer';  // Import the DI container
 import { Service } from "typedi";
 
 @Service()

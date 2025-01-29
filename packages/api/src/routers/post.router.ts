@@ -1,9 +1,9 @@
 // /packages/services/posts/post.router.ts
 
-import { publicProcedure, protectedProcedure } from "../../trpc";
+import { publicProcedure, protectedProcedure } from "../trpc";
 import { z } from "zod";
-import { PostService } from "./post.service";
-import { Container } from '../../lib/dContainer';  // Import the DI container
+import { PostService } from "../services/post.service";
+import { Container } from '../lib/dContainer';  // Import the DI container
 
 const postService = Container.get(PostService);
 

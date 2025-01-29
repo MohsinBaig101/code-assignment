@@ -1,4 +1,4 @@
-import { postRouter } from "./services/posts/post.router";
+import { postRouter } from "./routers/post.router";
 import { createTRPCRouter } from "./trpc";
 
 export const appRouter = createTRPCRouter({
