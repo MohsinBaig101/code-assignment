@@ -66,7 +66,6 @@ describe("CreatePostForm Component", () => {
     // Wait for the mutation to finish
     await waitFor(() => {
       expect(api.post.create.useMutation).toHaveBeenCalled();
-    //   expect(mockCloseModal).toHaveBeenCalledTimes(1);
     });
   });
 

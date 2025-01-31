@@ -4,7 +4,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it } from "vitest";
 import { api } from "~/trpc/react";
 import { ModalProvider } from "../../../_context/postContext";
-import { PostList } from "../../posts/index";
+import PostList from "../../posts/index";
 
 // Mock the necessary hooks and components
 vi.mock("~/trpc/react", () => ({
