@@ -1,4 +1,4 @@
-### 1. To run the code, please follow the below steps.
+### 1. Steps to Run the Application
 
 Make sure you have [PNPM](https://pnpm.io/) installed globally on your machine.
 
