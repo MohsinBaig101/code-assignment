@@ -1,4 +1,4 @@
-### 1. Steps to Run the Application
+### 1. Steps to Run the Application - (Full Stack Developer Assessment)
 
 Make sure you have [PNPM](https://pnpm.io/) installed globally on your machine.
 
