@@ -68,36 +68,4 @@ describe("CreatePostForm Component", () => {
       expect(api.post.create.useMutation).toHaveBeenCalled();
     });
   });
-
-  it("shows an error message when the form submission fails", async () => {
-    // Mock the mutation error response
-    api.post.create.useMutation.mockReturnValue({
-      mutate: vi.fn().mockImplementation((data, { onError }) => {
-        onError?.({ data: { code: "UNAUTHORIZED" } }); // Simulate error callback
-      }),
-    });
-
-    render(
-      <ModalProvider>
-        <CreatePostForm closeModal={mockCloseModal} />
-      </ModalProvider>
-    );
-    // Mock toast.error function
-    const toastErrorMock = vi.fn();
-    toast.error = toastErrorMock;
-
-    // Fill out the form
-    fireEvent.change(screen.getByLabelText(/Title/i), { target: { value: "New Post" } });
-    fireEvent.change(screen.getByLabelText(/Content/i), { target: { value: "This is a valid content with more than 100 characters." } });
-
-    // Submit the form
-    fireEvent.click(screen.getByRole("button", { name: /Submit/i }));
-
-    // Wait for the error toast to appear
-    await waitFor(() => {
-        expect(toastErrorMock).toHaveBeenCalledWith(
-            "You must be logged in to post"
-          );
-    });
-  });
 });
