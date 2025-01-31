@@ -1,6 +1,5 @@
 import { protectedProcedure, publicProcedure } from "../trpc";
 import { PostCommentsService } from "../services/comment.service";
-import { z } from "zod";
 import { getCommentsValidation, saveComment, saveReply } from '../validations/comment.validation';
 import Container from "typedi";
 
