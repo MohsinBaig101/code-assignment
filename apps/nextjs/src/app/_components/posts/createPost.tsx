@@ -13,9 +13,9 @@ import { Input } from "@inf/ui/input";
 import Spinner from "@inf/ui/spinner";
 import { TextArea } from "@inf/ui/textarea";
 import { toast } from "@inf/ui/toast";
-
 import { api } from "~/trpc/react";
 
+// Schema for validating the form input
 const postSchema = z.object({
   title: z.string().min(1, "Title is required"),
   content: z
@@ -25,7 +25,7 @@ const postSchema = z.object({
 });
 
 interface CreatePostFormProps {
-  closeModal: React.Dispatch<React.SetStateAction<boolean>>;
+  closeModal: React.Dispatch<React.SetStateAction<boolean>>; // Closes the modal after submitting
 }
 
 export function CreatePostForm({ closeModal }: CreatePostFormProps) {
@@ -38,16 +38,19 @@ export function CreatePostForm({ closeModal }: CreatePostFormProps) {
     [],
   );
 
+  // Form setup with validation schema and default values
   const form = useForm({ schema: postSchema, defaultValues });
 
+  // TRPC hook for utilities and mutation for creating a post
   const utils = api.useUtils();
   const createPost = api.post.create.useMutation({
     onSuccess: async () => {
-      form.reset();
-      await utils.post.invalidate();
-      closeModal(false);
+      form.reset(); // Reset the form after successful post creation
+      await utils.post.invalidate(); // Invalidate the cache to reflect changes
+      closeModal(false); // Close the modal after success
     },
     onError: (err) => {
+      // Display appropriate error messages based on the error response
       toast.error(
         err.data?.code === "UNAUTHORIZED"
           ? "You must be logged in to post"
@@ -56,6 +59,7 @@ export function CreatePostForm({ closeModal }: CreatePostFormProps) {
     },
   });
 
+  // Handles form submission by calling the mutation
   const handleSubmit = useCallback(
     (data: z.infer<typeof postSchema>) => {
       createPost.mutate(data);
@@ -81,7 +85,10 @@ export function CreatePostForm({ closeModal }: CreatePostFormProps) {
 
           {/* Title Field */}
           <div>
-            <label htmlFor="title" className="mb-1 block text-sm font-medium text-gray-900 dark:text-white">
+            <label
+              htmlFor="title"
+              className="mb-1 block text-sm font-medium text-gray-900 dark:text-white"
+            >
               Title
             </label>
             <FormField
@@ -100,7 +107,10 @@ export function CreatePostForm({ closeModal }: CreatePostFormProps) {
 
           {/* Content Field */}
           <div className="mt-6">
-            <label htmlFor="content" className="mb-1 block text-sm font-medium text-gray-900 dark:text-white">
+            <label
+              htmlFor="content"
+              className="mb-1 block text-sm font-medium text-gray-900 dark:text-white"
+            >
               Content
             </label>
             <FormField
@@ -109,7 +119,12 @@ export function CreatePostForm({ closeModal }: CreatePostFormProps) {
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
-                    <TextArea {...field} id="content" rows={5} placeholder="Content" />
+                    <TextArea
+                      {...field}
+                      id="content"
+                      rows={5}
+                      placeholder="Content"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -122,17 +137,17 @@ export function CreatePostForm({ closeModal }: CreatePostFormProps) {
             <Button
               type="button"
               variant="outline"
-              onClick={() => closeModal(false)}
+              onClick={() => closeModal(false)} // Closes the modal when Cancel is clicked
             >
               Cancel
             </Button>
             <Button
               type="submit"
-              // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-              disabled={createPost?.isPending}
+              disabled={createPost?.isPending} // Disable button while the mutation is pending
               className="flex items-center gap-2"
             >
-              Submit {createPost?.isPending && <Spinner />}
+              Submit {createPost?.isPending && <Spinner />}{" "}
+              {/* Show spinner while submitting */}
             </Button>
           </div>
         </form>

@@ -24,7 +24,7 @@ type PostWithCommentsProps = {
   postId: string;
 };
 
-export default function CommentsListing({ postId }: PostWithCommentsProps) {
+const CommentsListing = ({ postId }: PostWithCommentsProps) => {
   const {
     data,
     fetchNextPage,
@@ -131,4 +131,5 @@ export default function CommentsListing({ postId }: PostWithCommentsProps) {
       </div>
     </div>
   );
-}
+};
+export default CommentsListing;

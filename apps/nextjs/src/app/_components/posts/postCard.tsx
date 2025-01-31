@@ -6,6 +6,7 @@ import { Button } from "@inf/ui/button";
 import Spinner from "@inf/ui/spinner";
 import { Text } from "@inf/ui/text";
 import { toast } from "@inf/ui/toast";
+
 import { api } from "~/trpc/react";
 
 interface PostCardProps {
@@ -15,36 +16,38 @@ interface PostCardProps {
 
 export function PostCard({ post, viewPost }: PostCardProps) {
   const utils = api.useUtils();
+
+  // Mutation to handle post deletion
   const deletePost = api.post.delete.useMutation({
     onSuccess: async () => {
-      await utils.post.invalidate();
+      await utils.post.invalidate(); // Invalidate the cache on success
     },
     onError: (err) => {
       toast.error(
         err.data?.code === "UNAUTHORIZED"
           ? "You must be logged in to delete a post"
-          : "Failed to delete post",
+          : "Failed to delete post", // Show error message if deletion fails
       );
     },
   });
 
+  // Handler for deleting a post
   const handleDelete = useCallback(
     (e: React.MouseEvent) => {
       e.stopPropagation(); // Prevents triggering `viewPost`
-      deletePost.mutate({ id: post.id });
+      deletePost.mutate({ id: post.id }); // Trigger post deletion
     },
     [deletePost, post.id],
   );
 
+  // Memoized button content for delete action (spinner or icon)
   const deleteButtonContent = useMemo(
     () =>
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       !deletePost?.isPending ? (
         <TrashIcon width="18" height="18" />
       ) : (
         <Spinner />
       ),
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     [deletePost?.isPending],
   );
 
