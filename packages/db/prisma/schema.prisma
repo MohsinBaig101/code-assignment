@@ -48,7 +48,7 @@ model Comment {
   replies Comment[] @relation("CommentReplies")
 
   // Relation to the Post model
-  post Post @relation("PostComments", fields: [postId], references: [id])
+  post Post @relation("PostComments", fields: [postId], references: [id], onDelete: Cascade)
 
   @@map("comments") // Explicitly sets the table name to "post"
 }

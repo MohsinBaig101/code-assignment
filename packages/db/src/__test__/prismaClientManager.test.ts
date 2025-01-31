@@ -13,7 +13,7 @@ vi.mock('@prisma/client', () => {
 });
 
 describe('PrismaClientManager', () => {
-    let originalEnv;
+    let originalEnv: string | undefined;
 
     beforeEach(() => {
         // Save original NODE_ENV

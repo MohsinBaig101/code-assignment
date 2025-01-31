@@ -35,6 +35,11 @@
       "dependsOn": ["^topo", "^build"],
       "outputs": [".cache/.vitestcache"]
     },
+    "start": {
+      "dependsOn": ["^start"],
+      "cache": false,
+      "persistent": false
+    },
     "clean": {
       "cache": false
     },
