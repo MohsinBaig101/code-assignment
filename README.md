@@ -12,7 +12,7 @@ pnpm install
 
 # Copy environment variables
 cp .env.example .env
-  - Change the DATABASE_URL path in .env file
+  - Change the DATABASE_URL path in the .env file.
 
 # Push the database schema
 pnpm run db:push
@@ -24,3 +24,8 @@ pnpm run build
 pnpm run start
 
 ```
+
+## Side Note:
+We can deploy the code using a Docker container and deploy it on Kubernetes, AWS ECS, and other platforms.
+
+As part of the assessment, I have completed the required work.
