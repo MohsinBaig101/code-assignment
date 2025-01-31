@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
 import Link from "next/link";
-
 import Comments from "../../_components/posts/comments/listing";
 
 type PostWithCommentsProps = {
@@ -14,8 +13,6 @@ const PostWithComments: React.FC<PostWithCommentsProps> = async ({
   content,
   postId,
 }) => {
-  
-
   return (
     <div className="mx-auto w-full max-w-2xl rounded-lg bg-white p-6 shadow-md">
       <div className="mb-4">
@@ -40,7 +37,6 @@ const PostWithComments: React.FC<PostWithCommentsProps> = async ({
         <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
         <p className="mt-2 text-gray-700">{content}</p>
       </div>
-
       {/* Suspense for the comments section */}
       <Suspense fallback={<div>Loading comments...</div>}>
         <Comments postId={postId} />

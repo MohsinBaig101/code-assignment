@@ -1,15 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
-
 import { cn } from "@inf/ui";
 import { ThemeProvider, ThemeToggle } from "@inf/ui/theme";
 import { Toaster } from "@inf/ui/toast";
-
 import { TRPCReactProvider } from "~/trpc/react";
-
 import "~/app/globals.css";
-
 import { env } from "~/env";
 
 export const metadata: Metadata = {

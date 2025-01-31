@@ -128,6 +128,7 @@ export function CreatePostForm({ closeModal }: CreatePostFormProps) {
             </Button>
             <Button
               type="submit"
+              // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
               disabled={createPost?.isPending}
               className="flex items-center gap-2"
             >

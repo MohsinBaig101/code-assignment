@@ -1,7 +1,5 @@
-import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
 import { HydrateClient } from "~/trpc/server";
 import infSvg from "../../public/inf-logo-large.svg";
 
