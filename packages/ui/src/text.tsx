@@ -9,7 +9,7 @@ interface TextProps {
   weight?: "light" | "normal" | "bold"; // Font weight variants
   className?: string; // Custom class names
   variant?: "primary" | "secondary" | "muted"; // Custom variants
-  onClick?: (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
 export const Text: React.FC<TextProps> = ({
