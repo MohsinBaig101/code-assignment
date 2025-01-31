@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { api } from "~/trpc/react";
-import { PostCard } from "../../posts/postCard";
+import { PostCard } from "../../posts/PostCard";
 
 global.IntersectionObserver = class {
   observe = vi.fn();

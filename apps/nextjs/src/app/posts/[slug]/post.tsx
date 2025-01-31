@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import Link from "next/link";
-import Comments from "../../_components/posts/comments/listing";
+import Comments from "../../_components/posts/comments/CommentsListing";
 
 type PostWithCommentsProps = {
   postId: string;

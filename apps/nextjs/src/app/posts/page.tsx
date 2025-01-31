@@ -5,11 +5,11 @@ import dynamic from "next/dynamic";
 
 import Spinner from "@inf/ui/spinner";
 
-import { NavBar } from "../_components/navbar";
-import { ModalProvider } from "../_context/postContext";
+import { NavBar } from "../_components/Navbar";
+import { ModalProvider } from "../_context/PostContext";
 
 // Dynamically import PostList with Suspense
-const PostList = dynamic(() => import("../_components/posts/index"), {
+const PostList = dynamic(() => import("../_components/posts/PostsListing"), {
   suspense: true,
 });
 

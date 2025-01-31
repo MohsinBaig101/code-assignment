@@ -2,9 +2,9 @@
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import { vi } from "vitest";
-import { CreatePostForm } from "../../posts/createPost"; // Adjust import path
+import { CreatePostForm } from "../../posts/CreatePost"; // Adjust import path
 import { api } from "~/trpc/react"; // Mock the API
-import { ModalProvider } from "../../../_context/postContext"; // ModalProvider context
+import { ModalProvider } from "../../../_context/PostContext"; // ModalProvider context
 import { toast } from "@inf/ui/toast"; // Import toast to mock it
 
 vi.mock("@inf/ui/toast"); // Mock the toast
