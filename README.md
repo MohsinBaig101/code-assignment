@@ -13,6 +13,7 @@ pnpm install
 # Copy environment variables
 cp .env.example .env
   - Change the DATABASE_URL path in the .env file.
+# Make sure you have PostgreSQL on your local machine.
 
 # Push the database schema
 pnpm run db:push
