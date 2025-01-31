@@ -38,11 +38,13 @@ export function PostCard({ post, viewPost }: PostCardProps) {
 
   const deleteButtonContent = useMemo(
     () =>
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       !deletePost?.isPending ? (
         <TrashIcon width="18" height="18" />
       ) : (
         <Spinner />
       ),
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     [deletePost?.isPending],
   );
 

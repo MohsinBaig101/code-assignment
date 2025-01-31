@@ -93,7 +93,9 @@ export default function CommentsListing({ postId }: PostWithCommentsProps) {
 
       {hasNextPage && (
         <div className="mt-5 flex justify-center">
-          <Button onClick={fetchNextPage}>Load More</Button>
+          <Button type="button" onClick={() => fetchNextPage()}>
+            Load More
+          </Button>
         </div>
       )}
 
