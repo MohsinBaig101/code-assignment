@@ -5,8 +5,8 @@ import Link from "next/link";
 
 import { Button } from "@inf/ui/button";
 import { Modal } from "@inf/ui/modal";
-import { CreatePostForm } from "./posts/createPost";
-import { useModalContext } from "../_context/postContext";
+import { CreatePostForm } from "./posts/CreatePost";
+import { useModalContext } from "../_context/PostContext";
 
 export function NavBar() {
   const { isModalOpen, openModal, closeModal } = useModalContext();

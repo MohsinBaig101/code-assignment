@@ -3,8 +3,8 @@ import "@testing-library/jest-dom";
 import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it } from "vitest";
 import { api } from "~/trpc/react";
-import { ModalProvider } from "../../../_context/postContext";
-import { PostList } from "../../posts/index";
+import { ModalProvider } from "../../../_context/PostContext";
+import PostList from "../../posts/PostsListing";
 
 // Mock the necessary hooks and components
 vi.mock("~/trpc/react", () => ({
@@ -20,7 +20,11 @@ vi.mock("~/trpc/react", () => ({
     useUtils: vi.fn(),
   },
 }));
-
+global.IntersectionObserver = class {
+  observe = vi.fn();
+  unobserve = vi.fn();
+  disconnect = vi.fn();
+};
 describe("PostList Component", () => {
   beforeEach(() => {
     // Reset mock calls before each test to avoid conflicts

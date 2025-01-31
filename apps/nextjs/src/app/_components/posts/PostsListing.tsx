@@ -3,11 +3,11 @@
 import { useMemo } from "react";
 import Spinner from "@inf/ui/spinner";
 import { api } from "~/trpc/react";
-import { useModalContext } from "../../_context/postContext";
-import { NoPosts } from "./noPosts";
-import { PostCard } from "./postCard";
+import { useModalContext } from "../../_context/PostContext";
+import { NoPosts } from "./NoPosts";
+import { PostCard } from "./PostCard";
 
-const PostList = () => {
+const PostsListing = () => {
   // Destructure modal context to get the function for opening a modal
   const { openModal } = useModalContext();
 
@@ -44,4 +44,4 @@ const PostList = () => {
   );
 };
 
-export default PostList;
+export default PostsListing;

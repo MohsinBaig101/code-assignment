@@ -18,7 +18,7 @@ import { TextArea } from "@inf/ui/textarea";
 import { toast } from "@inf/ui/toast";
 
 import { api } from "~/trpc/react";
-import Comment from "./commentItem";
+import Comment from "./CommentCard";
 
 type PostWithCommentsProps = {
   postId: string;

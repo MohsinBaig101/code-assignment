@@ -2,7 +2,7 @@
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
-import { NoPosts } from "../../posts/noPosts";
+import { NoPosts } from "../../posts/NoPosts";
 
 describe("NoPosts Component", () => {
   it("renders correctly and calls openModal on button click", () => {

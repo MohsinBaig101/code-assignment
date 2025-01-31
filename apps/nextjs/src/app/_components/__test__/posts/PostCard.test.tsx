@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 
 import { api } from "~/trpc/react";
-import { PostCard } from "../../posts/postCard";
+import { PostCard } from "../../posts/PostCard";
 
 global.IntersectionObserver = class {
   observe = vi.fn();
@@ -45,9 +45,9 @@ describe("PostCard Component", () => {
 
     // Check if the title and content are rendered
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    expect(screen.getByText("Test Post")).toBeInTheDocument();
+    expect(screen.getByText("Post Title")).toBeInTheDocument();
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    expect(screen.getByText("This is a test post.")).toBeInTheDocument();
+    expect(screen.getByText("Post Content")).toBeInTheDocument();
   });
 
   it("calls deletePost mutation on delete button click", async () => {

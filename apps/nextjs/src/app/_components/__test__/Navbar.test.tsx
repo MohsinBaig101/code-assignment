@@ -4,8 +4,8 @@ import { createTRPCReact } from "@trpc/react-query";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import sinon from "sinon";
-import { NavBar } from "../navbar";
-import { useModalContext } from "../../_context/postContext";
+import { NavBar } from "../Navbar";
+import { useModalContext } from "../../_context/PostContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 global.IntersectionObserver = class {
