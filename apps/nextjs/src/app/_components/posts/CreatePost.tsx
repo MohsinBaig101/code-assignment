@@ -48,6 +48,7 @@ export function CreatePostForm({ closeModal }: CreatePostFormProps) {
       form.reset(); // Reset the form after successful post creation
       await utils.post.invalidate(); // Invalidate the cache to reflect changes
       closeModal(false); // Close the modal after success
+      toast.success("Post Saved Successfully");
     },
     onError: (err) => {
       // Display appropriate error messages based on the error response
